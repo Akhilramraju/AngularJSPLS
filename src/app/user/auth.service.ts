@@ -7,7 +7,7 @@ loginUser(userName: string, password: string){
         this.currentUser ={
             id:1,
             userName:userName,
-            firstName:'john',
+            firstName:'johnMan',
             lastName: 'papa '
 
 
@@ -15,5 +15,10 @@ loginUser(userName: string, password: string){
     }
     isAuthenticated(){
         return !!this.currentUser;
+    }
+    updateCurrentUser(firstName: string,lastName: string){
+        this.currentUser.firstName = firstName;
+        this.currentUser.lastName = lastName;
+
     }
 }
