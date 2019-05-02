@@ -3,12 +3,14 @@
         <hr>
         <div class="col-md-4">
           <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off" novalidate>
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{'error' : validateFirstName() }">
               <label for="firstName">First Name:</label>
+              <em *ngIf="validateFirstName()">Required</em>
               <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
             </div>
-            <div class="form-group">
+            <div class="form-group"  [ngClass]="{'error': validateLastName() }" >
               <label for="lastName">Last Name:</label>
+              <em *ngIf="validateLastName()">Required</em>
               <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
             </div>
       
@@ -16,4 +18,13 @@
             <button (click)="cancel()" type="button" class="btn btn-default">Cancel</button>
           </form>
         </div>
+      </div>
+
+      <div>
+        profileForm.controls.lastName.invalid : {{profileForm.controls.lastName.invalid}} <br/>
+            profileForm.controls.lastName.touched: {{profileForm.controls.lastName.touched}} <br/>
+      </div>
+      <div>
+        profileForm.controls.firstName.invalid : {{profileForm.controls.firstName.invalid}} <br/>
+            profileForm.controls.firstName.touched: {{profileForm.controls.firstName.touched}} <br/>
       </div>
