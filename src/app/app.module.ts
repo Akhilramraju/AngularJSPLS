@@ -17,12 +17,13 @@ import { DurationPipe } from './events/shared/duration.pipe'
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN,Toastr } from './common/toastr.service';
 import { appRoutes } from './routes'
 import { RouterModule } from '@angular/router';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 
+declare let toastr:any
  // import { EventThumbnailComponent } from './events/event-thumbnail.component';
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { AuthService } from './user/auth.service';
 
     // EventThumbnailComponent
   ],
-  providers: [EventService,ToastrService,EventRouteActivator,EventListResolver,AuthService,
+  providers: [EventService,
+    {provide: TOASTR_TOKEN, useValue: toastr},EventRouteActivator,EventListResolver,AuthService,
   {provide:'canDeactivateCreateEvent', useValue: checkDirtyState
   }],
   bootstrap: [EventsAppComponent]
