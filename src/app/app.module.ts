@@ -23,7 +23,7 @@ import { RouterModule } from '@angular/router';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 
-declare let toastr:any
+declare let toastr:Toastr
  // import { EventThumbnailComponent } from './events/event-thumbnail.component';
 @NgModule({
   imports: [
