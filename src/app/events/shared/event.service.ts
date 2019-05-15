@@ -34,13 +34,13 @@ export class EventService {
           sessionStorage.eventId = event.id; 
           return session;
         })
-        results.concat(matchingSessions);
+        results = results.concat(matchingSessions);
 
       })
       var emitter = new EventEmitter(true);
       setTimeout(() => {
           emitter.emit(results);
-      },100);
+      },0);
       return emitter;
     }
 }

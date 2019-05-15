@@ -15,21 +15,23 @@ import { ISession, EventService } from '../events';
 export class NavBarComponent{
         searchTerm: string = "";
         foundSessions:ISession[];
-
+        // sessions: Array<ISession>
 
         constructor(public auth:AuthService, private eventService: EventService){
-                 
+                //  $('#id').modal()
         }
         searchSessions(searchTerm){
-                console.log("list of sessions being search for term:"+searchTerm); 
-                this.eventService.searchSessions(searchTerm).subscribe
-              
+                
+                // console.log("list of sessions being search for term:"+searchTerm); 
+                this.eventService.searchSessions(searchTerm).subscribe             
                 (sessions => {
                         this.foundSessions = sessions;
                         console.log(this.foundSessions);
                 }
-
+              
                 )
+              
+
         }
 
 
